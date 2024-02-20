@@ -1,24 +1,44 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exercício 3</title>
 </head>
 <body>
-    <div id="App3">{{  number }}</div>
-    <script src="https://unpkg.com/vue@3.2.31/dist/vue.global.js"></script>
+    <div id="App3"> 
+        <h1>{{ LOL }}</h1> 
+        <br>
+        <h1>{{ n3 ** 3 }} {{ n5 * 25 }} {{ n10 ** 3 }}</h1>
+        <br>
+        <input type="number" v-model="conversor1"> 
+        <h3>  
+            Estas horas podem converter-se em: {{ conversor1 * 60 }} minutos e, por sua vez, estes minutos podem converter-se em: {{ { conversor1 * 60 } * 60 }} segundos, no total
+        </h3>
+        <br>
+        <input type="number" v-model="number1">
+        <span v-if="number1>number2" > > </span>
+        <span v-else-if="number1number2"> &lt; </span>
+        <span v-else> = </span>
+        <input type="number" v-model="number2">
+        <br>
+    </div>
+    <script src="https://unpkg.com/vue@3.2.47/dist/vue.global.js"></script>
     <script>
-        const app = Vue.createapp(
-            {
-                data()
-                {
-                    return{
-                        number : 2
-                    }
+        const app = Vue.createApp({
+            data(){
+                return{
+                    LOL : 'Hello world',
+                    n3 : 3,
+                    n5 : 5,
+                    n10 : 10,
+                    conversor1 : 0,
+                    number1 : 0,
+                    number2 : 0,
                 }
-            }
-        )
+            }            
+        })
         app.mount('#App3');
     </script>
 </body>
